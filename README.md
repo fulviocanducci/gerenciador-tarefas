@@ -1,4 +1,7 @@
-# gerenciador-tarefas
+# gerenciador-tarefas 
+
+https://cassiobotaro.dev/do_zero_a_implantacao/hello_fastapi/
+
 gerenciador-tarefas
 
 - python3 -m venv .venv
