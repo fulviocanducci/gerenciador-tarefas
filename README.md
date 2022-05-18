@@ -16,3 +16,6 @@ gerenciador-tarefas
 - pip install httpie
 - pip install uvicorn
 - pip install pytest
+
+
+- uvicorn --reload gerenciador_tarefas.gerenciador:app
