@@ -1,0 +1,34 @@
+name: main
+
+on:
+  push:
+    branches:
+      - "main"
+    tags:
+      - "*"
+  pull_request:
+    branches:
+      - "main"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+      - run: pip install -r dev-requirements.txt
+
+      - name: Run isort
+        run: python -m isort --check .
+
+      - name: Run black
+        run: python -m black --check .
+
+      - name: Run flake8
+        run: python -m flake8 . --exclude=.venv
+
+      - name: Run tests
+        run: python -m pytest .
